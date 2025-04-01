@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Price Prediction</title>
+    <!-- Bootstrap 4 for responsive design -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Main container -->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <!-- Card to hold the form -->
+                <div class="card p-4">
+                    <h3 class="text-center mb-4">House Price Prediction</h3>
+                    <!-- Prediction form -->
+                    <form id="predictionForm">
+                        <div class="form-group">
+                            <label for="area">Area (in sq. ft.)</label>
+                            <input type="number" id="area" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bedrooms">Number of Bedrooms</label>
+                            <input type="number" id="bedrooms" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="bathrooms">Number of Bathrooms</label>
+                            <input type="number" id="bathrooms" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="mainroad">Main Road (yes/no)</label>
+                            <select id="mainroad" class="form-control">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
+                        </div>
+                        <!-- Add more fields as needed -->
+                        <button type="submit" class="btn btn-primary btn-block">Predict Price</button>
+                    </form>
+
+                    <!-- Display result -->
+                    <div class="mt-4" id="result" style="display:none;">
+                        <h4 class="text-center">Predicted Price: <span id="predictedPrice"></span></h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        // Submit event for form
+        $('#predictionForm').on('submit', function(e) {
+            e.preventDefault();
+            
+            // Collect input data
+            const formData = {
+                area: $('#area').val(),
+                bedrooms: $('#bedrooms').val(),
+                bathrooms: $('#bathrooms').val(),
+                mainroad: $('#mainroad').val()
+                // Add other features here
+            };
+            
+            // Send data to backend for prediction
+            $.ajax({
+                url: '/predict',  // Backend endpoint
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(formData),
+                success: function(response) {
+                    $('#predictedPrice').text('$' + response.predicted_price.toFixed(2));
+                    $('#result').show();
+                },
+                error: function(error) {
+                    console.error(error);
+                    alert('Something went wrong, please try again.');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    background-color: #F1F8E9; /* Light green background */
+    font-family: 'Roboto', sans-serif;
+    color: #333; /* Darker text color */
+}
+
+/* Container Styling */
+.container {
+    margin-top: 50px;
+}
+
+/* Card Styling */
+.card {
+    background-color: #ffffff;
+    border-radius: 10px;
+    border: 1px solid #4CAF50; /* Vibrant Green Border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading */
+h3 {
+    color: #FF6F61; /* Vibrant Coral color */
+    font-size: 28px;
+    font-weight: bold;
+}
+
+/* Form Input Styling */
+.form-control {
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 16px;
+    background-color: #FFEB3B; /* Vibrant Yellow */
+    border: 1px solid #FF9800; /* Vibrant Orange Border */
+    color: #333;
+}
+
+.form-control:focus {
+    border-color: #FF6F61; /* Coral color for focus */
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.6); /* Focus shadow effect */
+}
+
+/* Button Styling */
+.btn {
+    border-radius: 10px;
+    font-size: 16px;
+    padding: 12px;
+    background-color: #FF6F61; /* Vibrant Coral */
+    color: white;
+    border: none;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: #FF3D2A; /* Darker Coral for hover effect */
+}
+
+/* Result Styling */
+#result {
+    background-color: #4CAF50; /* Vibrant Green background */
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 20px;
+    color: white;
+    font-size: 20px;
+}
+
+#result span {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 20px;
+}
+
+/* Select Styling */
+select.form-control {
+    background-color: #FFC107; /* Vibrant Amber */
+    border: 1px solid #FF9800; /* Vibrant Orange Border */
+}
+
+select.form-control:focus {
+    border-color: #FF6F61; /* Coral color for focus */
+    box-shadow: 0 0 5px rgba(255, 111, 97, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        padding: 20px;
+    }
+    h3 {
+        font-size: 24px;
+    }
+    .form-control {
+        font-size: 14px;
+    }
+    .btn {
+        font-size: 14px;
+    }
+}
